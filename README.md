@@ -8,18 +8,27 @@ MCP server interface for AI integration with [openapi-diff](https://github.com/O
 
 ## Usage
 
-The server exposes an MCP function `compare_openapi_specs` that takes two parameters:
-- `oldSpec`: The original OpenAPI specification
-- `newSpec`: The updated OpenAPI specification
+### Using MCP Server with Cloude Desktop
 
-### Example Request
+1. Build MCP server Jar using:
+
+```shell
+mvn clean install
+```
+
+2. To use the MCP server with Cloude Desktop, you need to configure it using a `claude_desktop_config.json` file. Below is an example configuration:
 
 ```json
 {
-  "name": "compare_openapi_specs",
-  "arguments": {
-    "oldSpec": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0",
-    "newSpec": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 2.0.0"
+  "mcpServers": {
+    "openapi-diff-mcp-server": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "-Dmcp.transport=stdio",
+        "/path/to/jar/openapi-diff-mcp-server-0.0.1-SNAPSHOT.jar"
+      ]
+    }
   }
 }
 ```
