@@ -30,7 +30,7 @@
     <properties>
         <java.version>21</java.version>
         <spring-ai.version>1.0.0-M6</spring-ai.version>
-        <openapi-diff.version>2.1.0-SNAPSHOT</openapi-diff.version>
+        <openapi-diff.version>2.1.0-beta.12</openapi-diff.version>
     </properties>
     <dependencies>
         <dependency>
